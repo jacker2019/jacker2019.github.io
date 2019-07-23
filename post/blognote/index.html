@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>使用Hugo搭建m10c主题博客的笔记 // Welcome To Ren&#39;s blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Ren" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://jacker2019.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用Hugo搭建m10c主题博客的笔记"/>
+<meta name="twitter:description" content="hugo框架下的各个目录说明 几个特殊目录说明：
+config.toml&gt;&gt;&gt;配置文件，配置主要用来配置主题，从下载的主题themes\m10c\exampleSite里面的config.toml文件进行适当修改复制到myblog目录下替换该目录的config.toml即可完成配置，不懂就看下载的主题说明，这里是m10c主题，就从主题那个网页看这个主题的说明
+content&gt;&gt;&gt;放置写的博客文件
+public&gt;&gt;&gt;用于将此文件夹下内容发布至github生成静态网页，过程看下面的说明
+themes&gt;&gt;&gt;放置主题文件
+创建博客文件夹、下载主题、配置 在hugo框架目录下，运行cmd命令 hugo new site myblog &gt;&gt;&gt;生成myblog博客文件夹，包含上述所说的几个目录
+主题下载：在博客文件夹（myblog）下右键运行 git bush，命令
+ git clone https://github.com//vaga/hugo-theme-m10c.git themes/m10c  下载该主题至theme文件夹下面
+配置主题：将theme-&gt;目标主题文件夹-&gt;exampleSite-&gt;config.toml的文件适当修改，然后复制到博客文件夹下替换这里的config.toml
+创建文章、本地测试 创建文章文件：在博客文件夹（myblog）下运行cmd命令：hugo new post/first_blog.md &gt;&gt;&gt;完成创建第一个博客文件，在myblog-&gt;post-&gt;first_blog.md
+编辑文章：需要修改文章前三行的属性，draft: false&gt;&gt;&gt;表示并非草稿/// title: &ldquo;标题&rdquo;&gt;&gt;&gt; 标注文章的标题///然后在下面写markdown即可///tags:表示标签，文章点进去相同标签的可以分类,就按照以下代码块开头标注即可
+ title: &quot;取一个文章标题&quot; date: 2019-07-09T19:22:47&#43;08:00 draft: false tags: [&quot;标签1&quot;]  本地测试：在博客文件夹目录下运行命令：hugo server &ndash;theme=m10c &ndash;buildDrafts &ndash;watch
+浏览器访问http://localhost：1313 即可完成本地预览测试，查看效果
+远程部署至github 一、在博客文件夹（myblog）目录下运行cmd命令：hugo &ndash;theme=m10c &ndash;baseUrl=&ldquo;https://jacker2019.github.io/&quot; &ndash;buildDrafts
+即可完成声明，表示要发布网站，于是在myblog-&gt;public下面生成很多文件，public文件内的文件均是需要部署到github中的，关注public-&gt;post里面是否有个blog文件夹， 这个文件夹里面html文件是可以预览的博客，实际部署完就是这个界面。所以这个文件调试好看了，再去部署
+二、github上创建仓库 jacker2019.github.io （用户名.github.io组成）
+三、发布至github上：public文件夹内右键 git bush
+输入分别输入以下命令：
+git init &gt;&gt;&gt;初始化，将public变成本地仓
+git add ."/>
+
+    <meta property="og:title" content="使用Hugo搭建m10c主题博客的笔记" />
+<meta property="og:description" content="hugo框架下的各个目录说明 几个特殊目录说明：
+config.toml&gt;&gt;&gt;配置文件，配置主要用来配置主题，从下载的主题themes\m10c\exampleSite里面的config.toml文件进行适当修改复制到myblog目录下替换该目录的config.toml即可完成配置，不懂就看下载的主题说明，这里是m10c主题，就从主题那个网页看这个主题的说明
+content&gt;&gt;&gt;放置写的博客文件
+public&gt;&gt;&gt;用于将此文件夹下内容发布至github生成静态网页，过程看下面的说明
+themes&gt;&gt;&gt;放置主题文件
+创建博客文件夹、下载主题、配置 在hugo框架目录下，运行cmd命令 hugo new site myblog &gt;&gt;&gt;生成myblog博客文件夹，包含上述所说的几个目录
+主题下载：在博客文件夹（myblog）下右键运行 git bush，命令
+ git clone https://github.com//vaga/hugo-theme-m10c.git themes/m10c  下载该主题至theme文件夹下面
+配置主题：将theme-&gt;目标主题文件夹-&gt;exampleSite-&gt;config.toml的文件适当修改，然后复制到博客文件夹下替换这里的config.toml
+创建文章、本地测试 创建文章文件：在博客文件夹（myblog）下运行cmd命令：hugo new post/first_blog.md &gt;&gt;&gt;完成创建第一个博客文件，在myblog-&gt;post-&gt;first_blog.md
+编辑文章：需要修改文章前三行的属性，draft: false&gt;&gt;&gt;表示并非草稿/// title: &ldquo;标题&rdquo;&gt;&gt;&gt; 标注文章的标题///然后在下面写markdown即可///tags:表示标签，文章点进去相同标签的可以分类,就按照以下代码块开头标注即可
+ title: &quot;取一个文章标题&quot; date: 2019-07-09T19:22:47&#43;08:00 draft: false tags: [&quot;标签1&quot;]  本地测试：在博客文件夹目录下运行命令：hugo server &ndash;theme=m10c &ndash;buildDrafts &ndash;watch
+浏览器访问http://localhost：1313 即可完成本地预览测试，查看效果
+远程部署至github 一、在博客文件夹（myblog）目录下运行cmd命令：hugo &ndash;theme=m10c &ndash;baseUrl=&ldquo;https://jacker2019.github.io/&quot; &ndash;buildDrafts
+即可完成声明，表示要发布网站，于是在myblog-&gt;public下面生成很多文件，public文件内的文件均是需要部署到github中的，关注public-&gt;post里面是否有个blog文件夹， 这个文件夹里面html文件是可以预览的博客，实际部署完就是这个界面。所以这个文件调试好看了，再去部署
+二、github上创建仓库 jacker2019.github.io （用户名.github.io组成）
+三、发布至github上：public文件夹内右键 git bush
+输入分别输入以下命令：
+git init &gt;&gt;&gt;初始化，将public变成本地仓
+git add ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jacker2019.github.io/post/blognote/" />
+<meta property="article:published_time" content="2019-07-09T19:22:47&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-09T19:22:47&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://jacker2019.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="Ren" /></a>
+      <h1>Welcome To Ren&#39;s blog</h1>
+      <p>这是一个菜鸟小白的自闭空间，智商不够勤奋补...</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/jacker2019"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://www.cnblogs.com/jacker2019/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">使用Hugo搭建m10c主题博客的笔记</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 9, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://jacker2019.github.io/tags/%E5%8D%9A%E5%AE%A2/">博客</a></div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="hugo框架下的各个目录说明">hugo框架下的各个目录说明</h1>
+
+<p>几个特殊目录说明：</p>
+
+<p>config.toml&gt;&gt;&gt;配置文件，配置主要用来配置主题，从下载的主题themes\m10c\exampleSite里面的config.toml文件进行适当修改复制到myblog目录下替换该目录的config.toml即可完成配置，不懂就看下载的主题说明，这里是m10c主题，就从主题那个网页看这个主题的说明</p>
+
+<p>content&gt;&gt;&gt;放置写的博客文件</p>
+
+<p>public&gt;&gt;&gt;用于将此文件夹下内容发布至github生成静态网页，过程看下面的说明</p>
+
+<p>themes&gt;&gt;&gt;放置主题文件</p>
+
+<h1 id="创建博客文件夹-下载主题-配置">创建博客文件夹、下载主题、配置</h1>
+
+<p>在hugo框架目录下，运行cmd命令  hugo  new  site  myblog  &gt;&gt;&gt;生成myblog博客文件夹，包含上述所说的几个目录</p>
+
+<p>主题下载：在博客文件夹（myblog）下右键运行 git  bush，命令</p>
+
+<pre><code> git clone https://github.com//vaga/hugo-theme-m10c.git themes/m10c  
+</code></pre>
+
+<p>下载该主题至theme文件夹下面</p>
+
+<p>配置主题：将theme-&gt;目标主题文件夹-&gt;exampleSite-&gt;config.toml的文件适当修改，然后复制到博客文件夹下替换这里的config.toml</p>
+
+<h1 id="创建文章-本地测试">创建文章、本地测试</h1>
+
+<p>创建文章文件：在博客文件夹（myblog）下运行cmd命令：hugo  new  post/first_blog.md  &gt;&gt;&gt;完成创建第一个博客文件，在myblog-&gt;post-&gt;first_blog.md</p>
+
+<p>编辑文章：需要修改文章前三行的属性，draft: false&gt;&gt;&gt;表示并非草稿///
+title: &ldquo;标题&rdquo;&gt;&gt;&gt; 标注文章的标题///然后在下面写markdown即可///tags:表示标签，文章点进去相同标签的可以分类,就按照以下代码块开头标注即可</p>
+
+<pre><code>        title: &quot;取一个文章标题&quot;
+        date: 2019-07-09T19:22:47+08:00
+        draft: false
+        tags: [&quot;标签1&quot;]
+</code></pre>
+
+<p>本地测试：在博客文件夹目录下运行命令：hugo server &ndash;theme=m10c &ndash;buildDrafts &ndash;watch<br />
+浏览器访问<a href="http://localhost：1313">http://localhost：1313</a> 即可完成本地预览测试，查看效果</p>
+
+<h1 id="远程部署至github">远程部署至github</h1>
+
+<p>一、在博客文件夹（myblog）目录下运行cmd命令：hugo &ndash;theme=m10c &ndash;baseUrl=&ldquo;<a href="https://jacker2019.github.io/&quot;">https://jacker2019.github.io/&quot;</a> &ndash;buildDrafts</p>
+
+<p>即可完成声明，表示要发布网站，于是在myblog-&gt;public下面生成很多文件，public文件内的文件均是需要部署到github中的，关注public-&gt;post里面是否有个blog文件夹，
+<strong><font color = red>这个文件夹里面html文件是可以预览的博客，实际部署完就是这个界面。所以这个文件调试好看了，再去部署</font></strong></p>
+
+<p>二、github上创建仓库  jacker2019.github.io  （用户名.github.io组成）</p>
+
+<p>三、发布至github上：public文件夹内右键 git bush</p>
+
+<p>输入分别输入以下命令：</p>
+
+<p>git init  &gt;&gt;&gt;初始化，将public变成本地仓</p>
+
+<p>git add .  &gt;&gt;&gt;本地仓所有文件加入暂存区</p>
+
+<p>git commit -m &ldquo;备注说明&rdquo;  &gt;&gt;&gt;提交至远程仓库</p>
+
+<p>git push <a href="https://github.com/jacker2019/jacker2019.github.io.git">https://github.com/jacker2019/jacker2019.github.io.git</a> master  &gt;&gt;&gt;这样就上传到我的github中的仓库里面了</p>
+
+<h1 id="更新文件">更新文件</h1>
+
+<p>！！！现在只知道1、将博客的那个仓库删了，重新创建空仓库。2、将public文件夹里面的内容清空，然后重新在post下创建索引页，然后重新进行远程部署至github操作（上一单元的操作）</p>
+
+<h1 id="博客网址">博客网址</h1>
+
+<p><a href="https://jacker2019.github.io/">https://jacker2019.github.io/</a>  也就是仓库名，博客文件关联的目录是：仓库-&gt;post-&gt;blog-&gt;HTML文件</p>
+
+<h1 id="写在最后的注意">写在最后的注意！！！</h1>
+
+<p>创建博客从下载主题以后，配置主要还是按照博客文件夹下的themes文件夹内的主题模板进行配置。不同的主题配置完全不同。</p>
+
+<pre><code>路径：myblog\themes\m10c\exampleSite
+按照模板去配置 static、content文件夹和config.tmol文件
+一般头像这种等静态图片在static文件夹下
+写的博客文件在content文件夹下，文件夹内设计也按照主题模板来设置
+</code></pre>
+
+<p>最后在附上几个网址：</p>
+
+<pre><code> 教程网址：https://www.jianshu.com/p/475110a1c811
+ hugo命令说明：https://blog.51cto.com/michaelkang/2364096?source=dra
+ hugo中文文档https://www.gohugo.org/
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

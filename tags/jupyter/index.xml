@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jupyter on Welcome To Ren&#39;s blog</title>
+    <link>https://jacker2019.github.io/tags/jupyter/</link>
+    <description>Recent content in jupyter on Welcome To Ren&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 09 Jul 2019 19:23:47 +0800</lastBuildDate>
+    
+	<atom:link href="https://jacker2019.github.io/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jupyter notebook使用笔记</title>
+      <link>https://jacker2019.github.io/post/jupyternote/</link>
+      <pubDate>Tue, 09 Jul 2019 19:23:47 +0800</pubDate>
+      
+      <guid>https://jacker2019.github.io/post/jupyternote/</guid>
+      <description> jupyternotebook的使用 常用快捷键 模式切换：ESC（命令模式，表现为蓝框）和Enter（编辑模式，表现为绿框） 只有在命令模式下才能转换状态，Y命令是编辑代码，M命令是markdown标记
+相关的常用快捷操作健：Shift-Enter 运行本单元，选中下个单元； Ctrl-Enter 运行本单元；
+做笔记所用的Markdown常用语法： #空格+标题，这个格式编辑标题，多少级标题，多少个#
+参考链接：https://blog.csdn.net/qq_38640439/article/details/81143836
+写一个helloworld 示例代码块 输入代码后 shift+enter 即可运行 print(&#39;hello world&#39;)  hello world    </description>
+    </item>
+    
+  </channel>
+</rss>

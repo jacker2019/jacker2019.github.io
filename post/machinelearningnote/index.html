@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>机器学习笔记 // Welcome To Ren&#39;s blog</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Ren" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://jacker2019.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="机器学习笔记"/>
+<meta name="twitter:description" content="机器学习笔记 机器学习相关概念 过拟合：训练集中表现很好，在测试集中表现很差 解决过拟合方法：正则化、
+正则化：在原始损失函数上加上的一个函数复杂度的项
+交叉验证：在调参试验（确定最优超参数的试验）中，在训练集中分割成N个部分，依次将N个部分的每个部分都作为测试集进行一次试验，然后计算每次的准确度，最后求着N个准确度的均值
+ 对于多个超参数交叉验证试验称作网格搜索，sklearn中使用GridSearchCV（）特征处理，传入算法模型、需要测试的参数、折数等 数值型特征：特征们的范围相差太大时进行归一化处理，（X-min）/（max-min） sklearn中 scaler=MinMaxscaler()--&gt;scaler.fit_transform--&gt;&gt;scaler.transform 有序型特征：按序转化为数字 类别型特征：独热编码（比如说男女，分为两列，是男的则男列为1，女列为0） sklearn中 encoder=OneHotEncoder()--&gt;encoder.fit_transform()--&gt;encoder.transform()  python基础 第一次看python基础教程的时候的思维导图总结（虽然有错误，但回顾知识点还是蛮方便的）：http://naotu.baidu.com/file/82acd48dbde5985e8fc8a542d4022887?token=c0255dfe025eee55 密码是H011
+列表：[]声明，然后 .append（）方法添加进去
+字典：{}声明，根据关键字或索引添加，例如d[&lsquo;key&rsquo;]=&lsquo;value&rsquo;，然后添加的话往前添加
+集合：set（）方法，将列表等变成一个集合，集合支持交并补的数学运算
+for循环，遍历内部的所有元素（是元素，不是索引），一般会用到items()方法取关键字和值
+列表的推导式:[推导式 for item in list]
+pandas基本用法 基本过程：导入库/导入库中的模块：import pandas as pd/from pandas import 模块名称  pandas的数据结构：
+一维数组：series 与 Time-series（时间索引的一维数组），生成的是一列 二维表格：DataFrame 三维数组：panel 高维的数据结构可以理解为低维度的容器  读取数据
+pd.read_csv(文件名/路径，index_col=&#39;指定某列作为索引&#39;) #其他参见https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_cs  相关函数
+ map（）：完成字典映射或者函数应用，data[&#39;label&#39;]=data[&#39;数据中的标签列&#39;].map(所定义的特征字典),对数据中标签列，按照定义的特征字典完成映射，生成label列 apply()方法： .values属性获取所有数据（不包含列的名称）获取这列数据，但是是以数组array形式返回，也就是个行向量 data[key] 类型是pandas的series 类型的数据；而data[key].values 类型是numpy 的ndarray类型的数据； .index获取所有数据的索引值 .head()获取几行数据(默认5行) .info()获取数据的基本信息 .keys()获取所有的列名称 .dtype()获取每一列都是什么类型 .mean() 计算列平均值，默认axis=0，可设置axis计算行 .max() 获取列最大值 ."/>
+
+    <meta property="og:title" content="机器学习笔记" />
+<meta property="og:description" content="机器学习笔记 机器学习相关概念 过拟合：训练集中表现很好，在测试集中表现很差 解决过拟合方法：正则化、
+正则化：在原始损失函数上加上的一个函数复杂度的项
+交叉验证：在调参试验（确定最优超参数的试验）中，在训练集中分割成N个部分，依次将N个部分的每个部分都作为测试集进行一次试验，然后计算每次的准确度，最后求着N个准确度的均值
+ 对于多个超参数交叉验证试验称作网格搜索，sklearn中使用GridSearchCV（）特征处理，传入算法模型、需要测试的参数、折数等 数值型特征：特征们的范围相差太大时进行归一化处理，（X-min）/（max-min） sklearn中 scaler=MinMaxscaler()--&gt;scaler.fit_transform--&gt;&gt;scaler.transform 有序型特征：按序转化为数字 类别型特征：独热编码（比如说男女，分为两列，是男的则男列为1，女列为0） sklearn中 encoder=OneHotEncoder()--&gt;encoder.fit_transform()--&gt;encoder.transform()  python基础 第一次看python基础教程的时候的思维导图总结（虽然有错误，但回顾知识点还是蛮方便的）：http://naotu.baidu.com/file/82acd48dbde5985e8fc8a542d4022887?token=c0255dfe025eee55 密码是H011
+列表：[]声明，然后 .append（）方法添加进去
+字典：{}声明，根据关键字或索引添加，例如d[&lsquo;key&rsquo;]=&lsquo;value&rsquo;，然后添加的话往前添加
+集合：set（）方法，将列表等变成一个集合，集合支持交并补的数学运算
+for循环，遍历内部的所有元素（是元素，不是索引），一般会用到items()方法取关键字和值
+列表的推导式:[推导式 for item in list]
+pandas基本用法 基本过程：导入库/导入库中的模块：import pandas as pd/from pandas import 模块名称  pandas的数据结构：
+一维数组：series 与 Time-series（时间索引的一维数组），生成的是一列 二维表格：DataFrame 三维数组：panel 高维的数据结构可以理解为低维度的容器  读取数据
+pd.read_csv(文件名/路径，index_col=&#39;指定某列作为索引&#39;) #其他参见https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_cs  相关函数
+ map（）：完成字典映射或者函数应用，data[&#39;label&#39;]=data[&#39;数据中的标签列&#39;].map(所定义的特征字典),对数据中标签列，按照定义的特征字典完成映射，生成label列 apply()方法： .values属性获取所有数据（不包含列的名称）获取这列数据，但是是以数组array形式返回，也就是个行向量 data[key] 类型是pandas的series 类型的数据；而data[key].values 类型是numpy 的ndarray类型的数据； .index获取所有数据的索引值 .head()获取几行数据(默认5行) .info()获取数据的基本信息 .keys()获取所有的列名称 .dtype()获取每一列都是什么类型 .mean() 计算列平均值，默认axis=0，可设置axis计算行 .max() 获取列最大值 ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jacker2019.github.io/post/machinelearningnote/" />
+<meta property="article:published_time" content="2019-07-11T08:16:06&#43;08:00"/>
+<meta property="article:modified_time" content="2019-07-11T08:16:06&#43;08:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://jacker2019.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="Ren" /></a>
+      <h1>Welcome To Ren&#39;s blog</h1>
+      <p>这是一个菜鸟小白的自闭空间，智商不够勤奋补...</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/jacker2019"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+          <a target="_blank" href="https://www.cnblogs.com/jacker2019/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">机器学习笔记</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 11, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://jacker2019.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></div></div>
+    </header>
+    <div class="post-content">
+      
+
+<h1 id="机器学习笔记">机器学习笔记</h1>
+
+<h2 id="机器学习相关概念">机器学习相关概念</h2>
+
+<p>过拟合：训练集中表现很好，在测试集中表现很差
+解决过拟合方法：正则化、</p>
+
+<p>正则化：在原始损失函数上加上的一个函数复杂度的项</p>
+
+<p>交叉验证：在调参试验（确定最优超参数的试验）中，在训练集中分割成N个部分，依次将N个部分的每个部分都作为测试集进行一次试验，然后计算每次的准确度，最后求着N个准确度的均值</p>
+
+<pre><code>  对于多个超参数交叉验证试验称作网格搜索，sklearn中使用GridSearchCV（）特征处理，传入算法模型、需要测试的参数、折数等
+
+  数值型特征：特征们的范围相差太大时进行归一化处理，（X-min）/（max-min）
+     sklearn中  scaler=MinMaxscaler()--&gt;scaler.fit_transform--&gt;&gt;scaler.transform
+  有序型特征：按序转化为数字
+  类别型特征：独热编码（比如说男女，分为两列，是男的则男列为1，女列为0）
+      sklearn中 encoder=OneHotEncoder()--&gt;encoder.fit_transform()--&gt;encoder.transform()
+</code></pre>
+
+<h3 id="python基础">python基础</h3>
+
+<p>第一次看python基础教程的时候的思维导图总结（虽然有错误，但回顾知识点还是蛮方便的）：<a href="http://naotu.baidu.com/file/82acd48dbde5985e8fc8a542d4022887?token=c0255dfe025eee55">http://naotu.baidu.com/file/82acd48dbde5985e8fc8a542d4022887?token=c0255dfe025eee55</a> 密码是H011</p>
+
+<p>列表：[]声明，然后 .append（）方法添加进去</p>
+
+<p>字典：{}声明，根据关键字或索引添加，例如d[&lsquo;key&rsquo;]=&lsquo;value&rsquo;，然后添加的话往前添加</p>
+
+<p>集合：set（）方法，将列表等变成一个集合，集合支持交并补的数学运算</p>
+
+<p>for循环，遍历内部的所有元素（是元素，不是索引），一般会用到items()方法取关键字和值</p>
+
+<p>列表的推导式:[推导式 for item in list]</p>
+
+<h3 id="pandas基本用法">pandas基本用法</h3>
+
+<pre><code>基本过程：导入库/导入库中的模块：import pandas as pd/from pandas import 模块名称
+</code></pre>
+
+<p>pandas的数据结构：</p>
+
+<pre><code>一维数组：series 与 Time-series（时间索引的一维数组），生成的是一列
+二维表格：DataFrame
+三维数组：panel
+高维的数据结构可以理解为低维度的容器
+</code></pre>
+
+<p>读取数据</p>
+
+<pre><code>pd.read_csv(文件名/路径，index_col='指定某列作为索引')  #其他参见https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_cs
+</code></pre>
+
+<p>相关函数</p>
+
+<pre><code> map（）：完成字典映射或者函数应用，data['label']=data['数据中的标签列'].map(所定义的特征字典),对数据中标签列，按照定义的特征字典完成映射，生成label列
+ apply()方法：
+ .values属性获取所有数据（不包含列的名称）获取这列数据，但是是以数组array形式返回，也就是个行向量
+    data[key] 类型是pandas的series 类型的数据；而data[key].values 类型是numpy 的ndarray类型的数据；
+ .index获取所有数据的索引值
+ .head()获取几行数据(默认5行)
+ .info()获取数据的基本信息
+ .keys()获取所有的列名称
+ .dtype()获取每一列都是什么类型
+ .mean() 计算列平均值，默认axis=0，可设置axis计算行
+ .max()  获取列最大值
+ .min()  获取列最小值
+ .reshape(-1,1)表示变成1列数据，-1表示python自动计算多少行，使用reshape并不改变原数据的形状
+</code></pre>
+
+<p>其他用法见大佬总结：
+<a href="https://blog.csdn.net/liufang0001/article/details/77856255/">https://blog.csdn.net/liufang0001/article/details/77856255/</a></p>
+
+<h3 id="scikit-learn机器学习库的基本使用">Scikit-Learn机器学习库的基本使用</h3>
+
+<p>常用相关函数：</p>
+
+<pre><code>fit(X,y)，训练算法
+predict()：预测测试集类别
+transform()：数据转换
+fit_transform()：合并fit和transform两个方法
+train_test_split：分离训练集和测试集（导入库from sklearn.model_selection import train_test_split）
+  用法：X_train,X_test, y_train, y_test=cross_validation.train_test_split(train_data,train_target,test_size=0.3, random_state=0)，random_state：是随机数的种子，改组随机数的编号，test_size训练样本的比例或者数量，train_data,train_target分别是训练样本的特征集与标签集
+cross_val_score：交叉验证评分，可以指认cv为上面的类的实例
+cross_val_predict：交叉验证的预测
+predict_proba(X)返回测试数据X的概率估值
+kneighbors([X, n_neighbors, return_distance])   查找一个或几个点的K个邻居
+kneighbors_graph([X, n_neighbors, mode])    计算在X数组中每个点的k邻居的（权重）图
+score(X_test, y_test, sample_weight=None)   返回给定测试数据和标签的平均准确值
+set_params(**params)    设置估值器的参数
+KNeighborsClassifier(n_neighbors=5)，设置K的值，默认为5
+</code></pre>
+
+<p>大佬总结：<a href="https://www.jianshu.com/p/516f009c0875">https://www.jianshu.com/p/516f009c0875</a></p>
+
+<h3 id="numpy基本用法">Numpy基本用法：</h3>
+
+<p>数组是[]， 矩阵是[[ ]]</p>
+
+<p>array（）方法将数组变成矩阵，形成的矩阵支持*2/**2元素乘2和元素平方，也支持矩阵相乘若*（对应元素相乘），若.doc（）函数矩阵相乘。读取的话数组用索引，矩阵对应的行列索引。</p>
+
+<p>mat（）方法也是生成矩阵，*与.doc（）均是矩阵相乘，.T方法是转置，shape（）方法查看矩阵或者数组，multiply（a，v）是a，v两个矩阵对应元素相乘，.sort()方法占原内存排序，.argsort()得到排序号每个元素的排序序号。 .mean（）方法获得均值。(行号，起始列:截止的后一列)方法取出元素，.T方法求逆。</p>
+
+<h3 id="beautiful-soup库进行解析">Beautiful soup库进行解析</h3>
+
+<h3 id="mrjob-库">Mrjob 库</h3>
+
+<h2 id="knn近邻算法">KNN近邻算法</h2>
+
+<p>用到的是sklearn中的 KNeighborsClassifier(n_neighbors=5)建立模型
+用score评价模型accuracy指标</p>
+
+<p>计算出测试样本与训练样本的距离 —&gt; 选择距离最小的K个训练样本 ——&gt; 统计K个训练样本中大多数的类别，这个分类就是预测结果    所以k会影响取值，一般默认5，通过交叉验证的方式确定最优的K值</p>
+
+<p>距离计算：</p>
+
+<pre><code>   欧拉表示：√[(x₂ - x₁)²+(y₂ - y₁)²] 
+   一般表示法：∑√[(x₂ - x₁)^p+(y₂ - y₁)^p]^(1/p) 
+</code></pre>
+
+<h3 id="logistic回归算法">logistic回归算法</h3>
+
+<p>用到的是sklearn中的LinearRegression（）建立线性模型
+ 用score评价模型R2指标，越接近1越好
+ 线性回归</p>
+
+<pre><code>  最小二乘法：
+    损失函数：∑ （真实值-预测值）的平方和
+    预测值：y=w*x+b,w表示权重，b表示偏置项
+</code></pre>
+
+<p>logistics回归（sigmoid函数）（做分类）</p>
+
+<pre><code>  sigmoid函数：y=1/(1+e^(-z)),z代表的是原来线性回归中的z=y=w*x+b
+  逻辑回归的过程：先输出概率，然后与0.5比较，小于0.5就算0，大于就算1
+</code></pre>
+
+<p>在sklearn中的LogisticRegression()建立逻辑回归模型</p>
+
+<h3 id="支持向量机svm-能够达到最大间隔的分类器">支持向量机SVM（能够达到最大间隔的分类器）</h3>
+
+<p>在sklearn中的SVC（）建立支持向量机模型
+    f(x,b,w)=sgn(wx+b)</p>
+
+<h3 id="matplotlib绘图">matplotlib绘图</h3>
+
+<p>导入库-&gt;声明对象-&gt;绘制</p>
+
+<pre><code>  import matplotlib.pyplot as plt
+  plt.figure() #创建一个图形实例，相当于形成一个画布，figure(num=None, figsize=None, dpi=None, facecolor=None, edgecolor=None, frameon=True)
+  plt.subplot(nrows,ncols,sharex,sharey,subplot_kw,**fig_kw)#创建子图
+  plt.scatter(X, y)绘制散点图
+  plt.plot(X, y)绘制直线图
+  plt.title(标题) 
+  plt.show() 展示
+</code></pre>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

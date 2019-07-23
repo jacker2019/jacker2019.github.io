@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Welcome To Ren&#39;s blog</title>
+    <link>https://jacker2019.github.io/post/</link>
+    <description>Recent content in Posts on Welcome To Ren&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 16 Jul 2019 20:56:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://jacker2019.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python语法思维导图总结</title>
+      <link>https://jacker2019.github.io/post/python/</link>
+      <pubDate>Tue, 16 Jul 2019 20:56:30 +0800</pubDate>
+      
+      <guid>https://jacker2019.github.io/post/python/</guid>
+      <description> python语法的一个思维导图总结笔记：密码HO11 http://naotu.baidu.com/file/82acd48dbde5985e8fc8a542d4022887?token=c0255dfe025eee55
+请点击头像回到主页查看全部博文 </description>
+    </item>
+    
+    <item>
+      <title>基于Sklearn进行KNN、线性回归、SVM算法的基本操作总结</title>
+      <link>https://jacker2019.github.io/post/sklearnlearningnote/</link>
+      <pubDate>Thu, 11 Jul 2019 08:16:06 +0800</pubDate>
+      
+      <guid>https://jacker2019.github.io/post/sklearnlearningnote/</guid>
+      <description>基于sklearn的一些AI算法基本操作 sklearn中的一些相关的库 分别导入这些相关算法的库
+import pandas as pd #导入一个用于读取csv数据的容器 from sklearn.model_selection import train_test_split #用于数据集划分的模块 from sklearn.model_selection import GridSearchCV #用于交叉验证的模块 from sklearn.neighbors import KNeighborsClassifier #knn算法的模块 from sklearn.linear_model import LinearRegression #线性回归算法的模块 from sklearn.linear_model import LogisticRegression #逻辑回归算法模块 from sklearn.svm import SVC #SVC算法的模块 import matplotlib.pyplot as plt #可视化的绘图模块 import warnings #此处是用于忽视警告的模块，warnings.filterwarnings(&amp;quot;ignore&amp;quot;)语句忽视警告 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler #特征预处理处理模块 import numpy as np from sklearn.preprocessing import OneHotEncoder, MinMaxScaler #特征预处理模块，one-hot编码和均一化处理  基本思路;
+定义特征和目标的标签 -&amp;gt; 读取整个数据集 -&amp;gt; 分别读取特征与标签数据集XY -&amp;gt; 划分数据集（测试集、训练集） -&amp;gt; 声明算法模型 -&amp;gt; 训练、测试计算精确度</description>
+    </item>
+    
+    <item>
+      <title>机器学习笔记</title>
+      <link>https://jacker2019.github.io/post/machinelearningnote/</link>
+      <pubDate>Thu, 11 Jul 2019 08:16:06 +0800</pubDate>
+      
+      <guid>https://jacker2019.github.io/post/machinelearningnote/</guid>
+      <description>机器学习笔记 机器学习相关概念 过拟合：训练集中表现很好，在测试集中表现很差 解决过拟合方法：正则化、
+正则化：在原始损失函数上加上的一个函数复杂度的项
+交叉验证：在调参试验（确定最优超参数的试验）中，在训练集中分割成N个部分，依次将N个部分的每个部分都作为测试集进行一次试验，然后计算每次的准确度，最后求着N个准确度的均值
+ 对于多个超参数交叉验证试验称作网格搜索，sklearn中使用GridSearchCV（）特征处理，传入算法模型、需要测试的参数、折数等 数值型特征：特征们的范围相差太大时进行归一化处理，（X-min）/（max-min） sklearn中 scaler=MinMaxscaler()--&amp;gt;scaler.fit_transform--&amp;gt;&amp;gt;scaler.transform 有序型特征：按序转化为数字 类别型特征：独热编码（比如说男女，分为两列，是男的则男列为1，女列为0） sklearn中 encoder=OneHotEncoder()--&amp;gt;encoder.fit_transform()--&amp;gt;encoder.transform()  python基础 第一次看python基础教程的时候的思维导图总结（虽然有错误，但回顾知识点还是蛮方便的）：http://naotu.baidu.com/file/82acd48dbde5985e8fc8a542d4022887?token=c0255dfe025eee55 密码是H011
+列表：[]声明，然后 .append（）方法添加进去
+字典：{}声明，根据关键字或索引添加，例如d[&amp;lsquo;key&amp;rsquo;]=&amp;lsquo;value&amp;rsquo;，然后添加的话往前添加
+集合：set（）方法，将列表等变成一个集合，集合支持交并补的数学运算
+for循环，遍历内部的所有元素（是元素，不是索引），一般会用到items()方法取关键字和值
+列表的推导式:[推导式 for item in list]
+pandas基本用法 基本过程：导入库/导入库中的模块：import pandas as pd/from pandas import 模块名称  pandas的数据结构：
+一维数组：series 与 Time-series（时间索引的一维数组），生成的是一列 二维表格：DataFrame 三维数组：panel 高维的数据结构可以理解为低维度的容器  读取数据
+pd.read_csv(文件名/路径，index_col=&#39;指定某列作为索引&#39;) #其他参见https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_cs  相关函数
+ map（）：完成字典映射或者函数应用，data[&#39;label&#39;]=data[&#39;数据中的标签列&#39;].map(所定义的特征字典),对数据中标签列，按照定义的特征字典完成映射，生成label列 apply()方法： .values属性获取所有数据（不包含列的名称）获取这列数据，但是是以数组array形式返回，也就是个行向量 data[key] 类型是pandas的series 类型的数据；而data[key].values 类型是numpy 的ndarray类型的数据； .index获取所有数据的索引值 .head()获取几行数据(默认5行) .info()获取数据的基本信息 .keys()获取所有的列名称 .dtype()获取每一列都是什么类型 .mean() 计算列平均值，默认axis=0，可设置axis计算行 .max() 获取列最大值 .</description>
+    </item>
+    
+    <item>
+      <title>jupyter notebook使用笔记</title>
+      <link>https://jacker2019.github.io/post/jupyternote/</link>
+      <pubDate>Tue, 09 Jul 2019 19:23:47 +0800</pubDate>
+      
+      <guid>https://jacker2019.github.io/post/jupyternote/</guid>
+      <description> jupyternotebook的使用 常用快捷键 模式切换：ESC（命令模式，表现为蓝框）和Enter（编辑模式，表现为绿框） 只有在命令模式下才能转换状态，Y命令是编辑代码，M命令是markdown标记
+相关的常用快捷操作健：Shift-Enter 运行本单元，选中下个单元； Ctrl-Enter 运行本单元；
+做笔记所用的Markdown常用语法： #空格+标题，这个格式编辑标题，多少级标题，多少个#
+参考链接：https://blog.csdn.net/qq_38640439/article/details/81143836
+写一个helloworld 示例代码块 输入代码后 shift+enter 即可运行 print(&#39;hello world&#39;)  hello world    </description>
+    </item>
+    
+    <item>
+      <title>使用Hugo搭建m10c主题博客的笔记</title>
+      <link>https://jacker2019.github.io/post/blognote/</link>
+      <pubDate>Tue, 09 Jul 2019 19:22:47 +0800</pubDate>
+      
+      <guid>https://jacker2019.github.io/post/blognote/</guid>
+      <description>hugo框架下的各个目录说明 几个特殊目录说明：
+config.toml&amp;gt;&amp;gt;&amp;gt;配置文件，配置主要用来配置主题，从下载的主题themes\m10c\exampleSite里面的config.toml文件进行适当修改复制到myblog目录下替换该目录的config.toml即可完成配置，不懂就看下载的主题说明，这里是m10c主题，就从主题那个网页看这个主题的说明
+content&amp;gt;&amp;gt;&amp;gt;放置写的博客文件
+public&amp;gt;&amp;gt;&amp;gt;用于将此文件夹下内容发布至github生成静态网页，过程看下面的说明
+themes&amp;gt;&amp;gt;&amp;gt;放置主题文件
+创建博客文件夹、下载主题、配置 在hugo框架目录下，运行cmd命令 hugo new site myblog &amp;gt;&amp;gt;&amp;gt;生成myblog博客文件夹，包含上述所说的几个目录
+主题下载：在博客文件夹（myblog）下右键运行 git bush，命令
+ git clone https://github.com//vaga/hugo-theme-m10c.git themes/m10c  下载该主题至theme文件夹下面
+配置主题：将theme-&amp;gt;目标主题文件夹-&amp;gt;exampleSite-&amp;gt;config.toml的文件适当修改，然后复制到博客文件夹下替换这里的config.toml
+创建文章、本地测试 创建文章文件：在博客文件夹（myblog）下运行cmd命令：hugo new post/first_blog.md &amp;gt;&amp;gt;&amp;gt;完成创建第一个博客文件，在myblog-&amp;gt;post-&amp;gt;first_blog.md
+编辑文章：需要修改文章前三行的属性，draft: false&amp;gt;&amp;gt;&amp;gt;表示并非草稿/// title: &amp;ldquo;标题&amp;rdquo;&amp;gt;&amp;gt;&amp;gt; 标注文章的标题///然后在下面写markdown即可///tags:表示标签，文章点进去相同标签的可以分类,就按照以下代码块开头标注即可
+ title: &amp;quot;取一个文章标题&amp;quot; date: 2019-07-09T19:22:47+08:00 draft: false tags: [&amp;quot;标签1&amp;quot;]  本地测试：在博客文件夹目录下运行命令：hugo server &amp;ndash;theme=m10c &amp;ndash;buildDrafts &amp;ndash;watch
+浏览器访问http://localhost：1313 即可完成本地预览测试，查看效果
+远程部署至github 一、在博客文件夹（myblog）目录下运行cmd命令：hugo &amp;ndash;theme=m10c &amp;ndash;baseUrl=&amp;ldquo;https://jacker2019.github.io/&amp;quot; &amp;ndash;buildDrafts
+即可完成声明，表示要发布网站，于是在myblog-&amp;gt;public下面生成很多文件，public文件内的文件均是需要部署到github中的，关注public-&amp;gt;post里面是否有个blog文件夹， 这个文件夹里面html文件是可以预览的博客，实际部署完就是这个界面。所以这个文件调试好看了，再去部署
+二、github上创建仓库 jacker2019.github.io （用户名.github.io组成）
+三、发布至github上：public文件夹内右键 git bush
+输入分别输入以下命令：
+git init &amp;gt;&amp;gt;&amp;gt;初始化，将public变成本地仓
+git add .</description>
+    </item>
+    
+  </channel>
+</rss>

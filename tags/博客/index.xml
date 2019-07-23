@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>博客 on Welcome To Ren&#39;s blog</title>
+    <link>https://jacker2019.github.io/tags/%E5%8D%9A%E5%AE%A2/</link>
+    <description>Recent content in 博客 on Welcome To Ren&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 09 Jul 2019 19:22:47 +0800</lastBuildDate>
+    
+	<atom:link href="https://jacker2019.github.io/tags/%E5%8D%9A%E5%AE%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Hugo搭建m10c主题博客的笔记</title>
+      <link>https://jacker2019.github.io/post/blognote/</link>
+      <pubDate>Tue, 09 Jul 2019 19:22:47 +0800</pubDate>
+      
+      <guid>https://jacker2019.github.io/post/blognote/</guid>
+      <description>hugo框架下的各个目录说明 几个特殊目录说明：
+config.toml&amp;gt;&amp;gt;&amp;gt;配置文件，配置主要用来配置主题，从下载的主题themes\m10c\exampleSite里面的config.toml文件进行适当修改复制到myblog目录下替换该目录的config.toml即可完成配置，不懂就看下载的主题说明，这里是m10c主题，就从主题那个网页看这个主题的说明
+content&amp;gt;&amp;gt;&amp;gt;放置写的博客文件
+public&amp;gt;&amp;gt;&amp;gt;用于将此文件夹下内容发布至github生成静态网页，过程看下面的说明
+themes&amp;gt;&amp;gt;&amp;gt;放置主题文件
+创建博客文件夹、下载主题、配置 在hugo框架目录下，运行cmd命令 hugo new site myblog &amp;gt;&amp;gt;&amp;gt;生成myblog博客文件夹，包含上述所说的几个目录
+主题下载：在博客文件夹（myblog）下右键运行 git bush，命令
+ git clone https://github.com//vaga/hugo-theme-m10c.git themes/m10c  下载该主题至theme文件夹下面
+配置主题：将theme-&amp;gt;目标主题文件夹-&amp;gt;exampleSite-&amp;gt;config.toml的文件适当修改，然后复制到博客文件夹下替换这里的config.toml
+创建文章、本地测试 创建文章文件：在博客文件夹（myblog）下运行cmd命令：hugo new post/first_blog.md &amp;gt;&amp;gt;&amp;gt;完成创建第一个博客文件，在myblog-&amp;gt;post-&amp;gt;first_blog.md
+编辑文章：需要修改文章前三行的属性，draft: false&amp;gt;&amp;gt;&amp;gt;表示并非草稿/// title: &amp;ldquo;标题&amp;rdquo;&amp;gt;&amp;gt;&amp;gt; 标注文章的标题///然后在下面写markdown即可///tags:表示标签，文章点进去相同标签的可以分类,就按照以下代码块开头标注即可
+ title: &amp;quot;取一个文章标题&amp;quot; date: 2019-07-09T19:22:47+08:00 draft: false tags: [&amp;quot;标签1&amp;quot;]  本地测试：在博客文件夹目录下运行命令：hugo server &amp;ndash;theme=m10c &amp;ndash;buildDrafts &amp;ndash;watch
+浏览器访问http://localhost：1313 即可完成本地预览测试，查看效果
+远程部署至github 一、在博客文件夹（myblog）目录下运行cmd命令：hugo &amp;ndash;theme=m10c &amp;ndash;baseUrl=&amp;ldquo;https://jacker2019.github.io/&amp;quot; &amp;ndash;buildDrafts
+即可完成声明，表示要发布网站，于是在myblog-&amp;gt;public下面生成很多文件，public文件内的文件均是需要部署到github中的，关注public-&amp;gt;post里面是否有个blog文件夹， 这个文件夹里面html文件是可以预览的博客，实际部署完就是这个界面。所以这个文件调试好看了，再去部署
+二、github上创建仓库 jacker2019.github.io （用户名.github.io组成）
+三、发布至github上：public文件夹内右键 git bush
+输入分别输入以下命令：
+git init &amp;gt;&amp;gt;&amp;gt;初始化，将public变成本地仓
+git add .</description>
+    </item>
+    
+  </channel>
+</rss>
